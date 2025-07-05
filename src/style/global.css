@@ -1,0 +1,55 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/styles/global.css */
+
+.section-block {
+  @apply bg-gray-900 rounded-xl p-6 border border-gray-800 shadow;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-pink-400 mb-4;
+}
+
+.skill-tag {
+  @apply bg-gray-800 px-3 py-1 rounded-full text-white;
+}
+
+
+@media print {
+  /* Nascondi header di navigazione e sidebar */
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  /* Estendi il main su tutta la larghezza disponibile */
+  main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Rimuovi i box-shadow e i bordi per un risultato più “pulito” */
+  .rounded-xl,
+  .shadow-lg,
+  .border {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Ottimizza spaziature e dimensioni font per la stampa */
+  body {
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Forza page-break tra le sezioni */
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 1cm;
+  }
+}

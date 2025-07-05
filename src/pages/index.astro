@@ -1,0 +1,225 @@
+---
+import Base from '../layouts/Base.astro';
+
+
+
+// Define constants for reuse
+const resumeUrl = '/CV_federico_manfredi_longo.pdf';
+const wolfGif = 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9hMHRhOG5xNndlMGIzeDBqaGxodW1jOHc1MzF6MWo1czJocGZ2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUA7bebzsiDP5Jmati/giphy.gif';
+
+const aboutText = `
+   Sviluppatore Full-Stack e appassionato di Cybersecurity, con un forte interesse per l intelligence e l automazione. Amo risolvere problemi complessi combinando creatività, strategia e tecnologie moderne. Mi muovo tra codice e analisi come <span class="text-white font-semibold">Mr. Wolf</span>: rapido, preciso e orientato al risultato.
+`;
+
+const sections = [
+  { id: 'about', label: 'Chi sono' },
+  { id: 'experience', label: 'Esperienza' },
+  { id: 'skills', label: 'Competenze' },
+  { id: 'projects', label: 'Progetti' },
+  { id: 'certs', label: 'Certificazioni' },
+  { id: 'languages', label: 'Lingue' },
+  { id: 'contacts', label: 'Contatti' },
+  { id: 'download', label: 'Download PDF' },
+];
+
+
+const skillCategories = [
+  { label: 'Strumenti & DevOps', skills: ['Git', 'Nginx', 'Docker'] },
+  { label: 'Programmazione', skills: ['Python', 'C', 'JavaScript / TypeScript', 'Bash', 'PHP', 'HTML/CSS', 'SQL'] },
+  { label: 'Frameworks & Runtime', skills: ['React / Next.js', 'Node.js / Express', 'Laravel'] },
+  { label: 'Cybersecurity', skills: ['Cybersecurity', 'Ethical Hacking', 'Cyber Threat Intelligence', 'OSINT', 'HUMINT', 'Web PenTest'] },
+  { label: 'Network Security', skills: ['TCP/IP & Subnetting', 'Network Monitoring & Logging', 'Wireshark & Packet Analysis'] },
+  { label: 'Governance & Compliance', skills: ['ISO 27001', 'NIST'] },
+ { label: 'Offensive Security Tools', skills: ['Burp Suite', 'Metasploit', 'Nmap', 'Aircrack-ng'] },
+{ label: 'Recon & Intelligence Tools', skills: ['Maltego', 'Shodan'] }
+
+]
+
+const certifications = [
+{ name: 'Network Technician Career Path - Cisco', status: 'In Corso', date: '' },
+
+  { name: 'Google Data Analytics - Coursera', status: 'Completato', date: 'Maggio 2025' },
+  { name: 'Ethical Hacker - Cisco', status: 'Completato', date: 'Dicembre 2023' },
+  { name: 'A Guide to Hands On Network Pentesting - Ec-Council', status: 'Completato', date: 'Ottobre 2023' },
+  { name: 'Linux - Ec-Council', status: 'Completato', date: 'Settembre 2023' },
+  { name: 'Successful Negotiation: Essential Strategies and Skills - Coursera', status: 'Completato', date: 'Giugno 2021' },
+
+];
+;
+---
+
+<Base title="CV – Jate.wtf" description="Curriculum Vitae di Federico Manfredi Longo aka Mr. Wolf">
+  <div class="grid md:grid-cols-[200px_1fr] gap-8">
+
+    <!-- Desktop Sidebar Navigation -->
+    <nav aria-label="Navigazione sezioni" class="hidden md:flex flex-col gap-3 sticky top-6 h-max bg-gray-800 text-pink-400 text-base p-4 rounded-xl shadow-md border border-gray-700">
+      {sections.map((section) => (
+        <a
+          href={`#${section.id}`}
+          class="hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-pink-500 rounded"
+        >
+          {section.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Main Content -->
+    <main class="space-y-16 text-lg text-gray-300">
+
+      <!-- Mobile Navigation -->
+      <nav aria-label="Navigazione mobile" class="md:hidden flex gap-4 overflow-x-auto text-base py-3 px-2 bg-gray-800 border border-gray-700 rounded-xl sticky top-2 z-10">
+        {sections.map((section) => (
+          <a
+            href={`#${section.id}`}
+            class="text-pink-400 hover:text-white whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 rounded"
+          >
+            {section.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Header -->
+      <header role="banner" class="text-center border-b border-gray-700 pb-6">
+        <h1 class="text-5xl font-bold text-white">Federico Manfredi Longo</h1>
+        <h2 class="text-xl text-pink-500 mt-2">Developer / Cyber Intelligence</h2>
+
+
+      </header>
+
+      <!-- About Section -->
+      <section id="about" aria-labelledby="about-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg flex flex-col md:flex-row gap-6 items-start">
+        <div class="flex-1">
+          <h3 id="about-title" class="text-3xl text-pink-400 font-bold mb-4">Chi Sono</h3>
+         <p>
+Sviluppatore Full-Stack e appassionato di Cybersecurity, con un forte interesse per l' intelligence e l' automazione. Amo risolvere problemi complessi combinando creatività, strategia e tecnologie moderne. Mi muovo tra codice e analisi come <span class="text-white font-semibold">Mr. Wolf</span>: rapido, preciso e orientato al risultato.
+</p>
+
+        </div>
+        <figure class="w-full md:w-40 rounded-lg overflow-hidden border border-gray-700">
+          <img
+            src={wolfGif}
+            alt="GIF animata di Mr. Wolf"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="sr-only">Mr. Wolf in azione</figcaption>
+        </figure>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" aria-labelledby="experience-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg">
+        <h3 id="experience-title" class="text-3xl text-pink-400 font-bold mb-4">Esperienza & Istruzione</h3>
+        <div class="space-y-6">
+          {[
+            { title: 'Full-Stack Developer & Automation', subtitle: 'Freelance — 2020 → Presente', desc: 'Sviluppo di applicazioni web e sistemi di automazione per processi ripetitivi. Esperienza in data scraping, creazione di bot e ottimizzazione di infrastrutture digitali.' },
+            { title: 'ITS Technology & Digital Healthcare', subtitle: 'San Raffaele - Fondazione Biotecnologie — 2024 → 2026', desc: 'Percorso di alta formazione sulle tecnologie applicate al settore sanitario. Tecnologie applicate alla sanità digitale, gestione dati sanitari, cybersecurity e IoT medicale.' },
+            { title: 'Cyber Security Architect', subtitle: 'Leonardo — 2023', desc: 'Percorso formativo completo offerto da Leonardo, con focus su architetture sicure, identity management, data protection, cloud security, red team, incident response e compliance. ' },
+            { title: 'Cyber Security Specialist', subtitle: 'Challenge Network - 2022', desc: 'Percorso formativo  sui fondamenti della sicurezza informatica. ' },
+            { title: 'Full-Stack Developer', subtitle: 'Aulab — 2022', desc: 'Corso completo sullo sviluppo web full-stack. Approfondimento su JavaScript, PHP, Laravel e database relazionali.' }
+          ].map((job) => (
+            <article>
+              <h4 class="text-lg font-semibold text-white">{job.title}</h4>
+              <p class="text-base text-gray-400 italic mb-2">{job.subtitle}</p>
+              <p class="text-base">{job.desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+       <section id="skills" aria-labelledby="skills-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg">
+        <h3 id="skills-title" class="text-3xl text-pink-400 font-bold mb-4">Competenze Tecniche</h3>
+        <div class="space-y-6">
+          {skillCategories.map((cat) => (
+            <div class="flex flex-col">
+              <h4 class="text-xl text-white font-semibold mb-2">{cat.label}</h4>
+              <ul class="flex flex-wrap gap-2">
+                {cat.skills.map((skill) => (
+                  <li class="bg-gray-800 px-3 py-1 rounded-full text-white text-sm font-mono">{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+     <section id="projects" aria-labelledby="projects-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg">
+  <h3 id="projects-title" class="text-3xl text-pink-400 font-bold mb-6">Progetti</h3>
+  <ul class="space-y-4">
+    {[
+      {
+        name: 'Cyberbiotics',
+        desc1: 'Agente autonomo autoreplicante per la sicurezza. Progetto sperimentale che prevede la propagazione automatica tra IP-listati (router/server) per eseguire task mirati tramite un “RNA digitale” configurabile. In fase di studio, con primi test funzionali completati.'
+      }
+    ].map((project) => (
+      <li class="flex items-start gap-4">
+        <span class="mt-1 text-pink-400">•</span>
+        <div>
+          <h4 class="text-lg font-semibold text-white">{project.name}</h4>
+          <p class="text-base text-gray-300">{project.desc1}</p>
+          <p class="text-base text-gray-300">{project.desc2}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>
+
+      <!-- Certifications Section -->
+    <section id="certs" aria-labelledby="certs-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg">
+        <h3 id="certs-title" class="text-3xl text-pink-400 font-bold mb-4">Certificazioni</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {certifications.map((cert) => (
+            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:bg-gray-700 transition">
+              <h4 class="text-lg font-semibold text-white mb-1">{cert.name}</h4>
+              <p class="text-sm text-gray-400">{cert.status === 'Completato' ? `Completato: ${cert.date}` : `In corso: ${cert.date}`}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Languages Section -->
+      <section id="languages" aria-labelledby="languages-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg">
+        <h3 id="languages-title" class="text-3xl text-pink-400 font-bold mb-4">Lingue</h3>
+        <ul class="list-disc list-inside space-y-1 text-base">
+            <li>🇮🇹 Italiano — madrelingua</li>
+			<li>🇬🇧 Inglese — livello B1</li>
+			<li>🇷🇺 Russo — in fase di studio</li>
+
+        </ul>
+      </section>
+
+      <!-- Contacts Section -->
+      <section id="contacts" aria-labelledby="contacts-title" class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-lg text-center">
+  <h3 id="contacts-title" class="text-3xl text-pink-400 font-bold mb-4">Contattami</h3>
+  <a
+    href="mailto:federicomanfredi.longo@gmail.com"
+    class="inline-block px-6 py-3 bg-pink-600 hover:bg-pink-700 text-white font-mono text-base rounded-full shadow-md transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500"
+  >
+    Invia Email
+  </a>
+</section>
+
+<section id="download" class="text-center py-6">
+  <a
+    href={resumeUrl}
+    download
+    class="inline-block px-6 py-3 bg-pink-600 hover:bg-pink-700 text-white font-mono text-base rounded-full shadow-md transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500"
+    aria-label="Scarica il curriculum in PDF"
+  >
+    ↓ Scarica la versione PDF
+  </a>
+</section>
+
+
+      <!-- Footer -->
+      <footer role="contentinfo" class="text-center pt-10 text-base text-gray-600 border-t border-gray-800">
+        © 2025 Jate.wtf — All rights reserved.
+         <p class="text-base text-gray-500 italic">Created with boredom and little motivation 🥱</p>
+      </footer>
+
+
+    </main>
+  </div>
+</Base>
