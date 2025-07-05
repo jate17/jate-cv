@@ -1,1 +1,15 @@
-<h1>TEst</h1>
+ ---
+export async function getStaticPaths() {
+  // Esempio: sostituisci con la tua fonte dati
+  const codes = ['alpha', 'beta', 'gamma'];
+
+  return codes.map((code) => ({
+    params: { code },
+    props: { code }, // se ti serve passarlo come prop
+  }));
+}
+
+// Ora puoi usare `Astro.params.code` o `code` dentro il template
+---
+
+<h1>Pagina NFC per: {Astro.params.code}</h1>
